@@ -1,21 +1,28 @@
-import React from 'react';
-import Job from './Job';
-import './JobList.css';
+import React, { useEffect, useState } from 'react';
 
-const jobs = [
-  { id: 1, title: 'Frontend Developer', company: 'Company A', location: 'New York, NY', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
-  { id: 2, title: 'Backend Developer', company: 'Company B', location: 'San Francisco, CA', description: 'Pellentesque in ipsum id orci porta dapibus.' },
-  { id: 3, title: 'Full Stack Developer', company: 'Company C', location: 'Austin, TX', description: 'Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.' },
-];
+const JobList = () => {
+  const [jobs, setJobs] = useState([]);
 
-function JobList() {
+  useEffect(() => {
+    fetch('/api/jobs')
+      .then((response) => response.json())
+      .then((data) => setJobs(data))
+      .catch((error) => console.error('Error fetching jobs:', error));
+  }, []);
+
   return (
-    <div className="job-list">
-      {jobs.map(job => (
-        <Job key={job.id} job={job} />
+    <div>
+      <h1>Job Listings</h1>
+      {jobs.map((job) => (
+        <div key={job._id}>
+          <h2>{job.title}</h2>
+          <p>{job.description}</p>
+          <p>{job.location}</p>
+          <p>{job.company}</p>
+        </div>
       ))}
     </div>
   );
-}
+};
 
 export default JobList;
