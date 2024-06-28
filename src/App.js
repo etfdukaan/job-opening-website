@@ -3,7 +3,9 @@ import JobList from './components/JobList';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
 
-
+import React from 'react';
+import Home from './pages/Home';
+import './styles.css';
 
 function App() {
   return (
