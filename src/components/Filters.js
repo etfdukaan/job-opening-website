@@ -2,34 +2,19 @@ import React from 'react';
 
 const Filters = ({ filters, onFilterChange }) => {
   return (
-    <div>
-      <h3>Filters</h3>
-      <div>
-        <h4>Locations</h4>
-        {filters.locations.map(location => (
-          <div key={location}>
-            <input 
-              type="checkbox" 
-              value={location} 
-              onChange={(e) => onFilterChange('location', e.target.value)}
-            />
-            {location}
-          </div>
+    <div className="mb-4">
+      <h5>Filter by Location</h5>
+      <select className="form-control mb-3" onChange={(e) => onFilterChange('location', e.target.value)}>
+        {filters.locations.map((location, index) => (
+          <option key={index} value={location}>{location}</option>
         ))}
-      </div>
-      <div>
-        <h4>Job Types</h4>
-        {filters.jobTypes.map(type => (
-          <div key={type}>
-            <input 
-              type="checkbox" 
-              value={type} 
-              onChange={(e) => onFilterChange('jobType', e.target.value)}
-            />
-            {type}
-          </div>
+      </select>
+      <h5>Filter by Job Type</h5>
+      <select className="form-control" onChange={(e) => onFilterChange('jobType', e.target.value)}>
+        {filters.jobTypes.map((type, index) => (
+          <option key={index} value={type}>{type}</option>
         ))}
-      </div>
+      </select>
     </div>
   );
 };

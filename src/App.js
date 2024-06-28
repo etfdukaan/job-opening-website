@@ -1,5 +1,9 @@
 import React from 'react';
 import JobList from './components/JobList';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './styles.css';
+
+
 
 function App() {
   return (

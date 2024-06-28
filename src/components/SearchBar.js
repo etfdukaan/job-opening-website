@@ -3,20 +3,24 @@ import React, { useState } from 'react';
 const SearchBar = ({ onSearch }) => {
   const [query, setQuery] = useState('');
 
-  const handleSearch = () => {
+  const handleSearch = (e) => {
+    e.preventDefault();
     onSearch(query);
   };
 
   return (
-    <div>
-      <input 
-        type="text" 
-        value={query} 
-        onChange={(e) => setQuery(e.target.value)} 
-        placeholder="Search for jobs..."
+    <form className="form-inline my-4" onSubmit={handleSearch}>
+      <input
+        type="text"
+        className="form-control mr-sm-2"
+        placeholder="Search jobs"
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
       />
-      <button onClick={handleSearch}>Search</button>
-    </div>
+      <button type="submit" className="btn btn-outline-success my-2 my-sm-0">
+        Search
+      </button>
+    </form>
   );
 };
 

@@ -20,7 +20,7 @@ const Home = () => {
   };
 
   return (
-    <div>
+    <div className="container">
       <SearchBar onSearch={handleSearch} />
       <Filters filters={filters} onFilterChange={handleFilterChange} />
       <JobList jobs={jobs} />
