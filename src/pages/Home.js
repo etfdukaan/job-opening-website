@@ -28,17 +28,4 @@ const Home = () => {
   );
 };
 
-// export default8. **src/pages/JobPage.js**
-// ```jsx
-// import React from 'react';
-// import JobDetail from '../components/JobDetail';
-
-// const JobPage = ({ match }) => {
-//   return (
-//     <div>
-//       <JobDetail match={match} />
-//     </div>
-//   );
-// };
-
-// export default JobPage;
+export default Home;
